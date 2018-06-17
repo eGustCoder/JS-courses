@@ -1,12 +1,22 @@
 # 狗哥的编程课堂
 
-## JavaScript从入门到。。。
+学习现代 JS 编程与工具链
 
-1. 网站前端开发
-1. 移动应用开发
-1. 桌面开发
-1. 后端开发
-1. 机器学习 https://js.tensorflow.org/
+## 预备知识
+
+* HTML
+* CSS
+* JS
+
+> 能够完成基本的网页，对全栈编程有一定了解
+
+## JavaScript能做什么？
+
+* 网站前端开发
+* 移动应用开发
+* 桌面开发
+* 后端开发
+* 机器学习: https://js.tensorflow.org/
 
 ### 优势
 
@@ -15,11 +25,12 @@
 * 正确的 UI 开发方式 - Reactive UI 框架 + 状态管理
 * 脚本语言运行时 - Node.js
 * 强大的工具链
+* 新语法 - 解决痛点
 
 ### 劣势
 
-* 传统观念
-* 新语法
+* 传统观念 - 糟糕的语法，混乱的对象模型，搞不清 this，callback hell
+* 新语法 - 不了解，不会用
 * 开发工具链对初学者并不友好
 * 技术更新快 - 中文社区文档
 
@@ -28,7 +39,7 @@
 ## 工具链
 
 1. [Node.js](https://nodejs.org/)
-1. 包管理: NPM/[Yarn](https://yarnpkg.com/)
+1. 包管理: NPM / [Yarn](https://yarnpkg.com/)
 1. 代码检查: [ESLint](https://eslint.org/) 工具
 1. 测试工具: Mocha, [Jest](https://facebook.github.io/jest/)
 
@@ -39,8 +50,8 @@
 1. UI框架: [React](https://reactjs.org/), [Vue](https://vuejs.org/)
 1. 状态管理: [Redux](https://redux.js.org/) + [redux-saga](https://github.com/redux-saga/redux-saga)/[redux-thunk](https://github.com/reduxjs/redux-thunk), [Vuex](https://vuex.vuejs.org/)
 1. 客户端路由: [react-router](https://github.com/ReactTraining/react-router), [vue-router](https://router.vuejs.org/)
-1. HTML: [Pug](https://pugjs.org/)
-1. CSS: [SASS/SCSS](https://sass-lang.com/), LESS, [Stylus](http://stylus-lang.com/)
+1. HTML 模板: [Pug](https://pugjs.org/)
+1. CSS 预处理: [SASS/SCSS](https://sass-lang.com/), LESS, [Stylus](http://stylus-lang.com/)
 1. API: REST, [GraphQL](https://graphql.org/)
 
 > SPA = Single Page Application
@@ -75,10 +86,126 @@
 1. [LoDash](https://lodash.com/docs/)
 1. [Axios](https://github.com/axios/axios)
 1. FP: [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide)
-1. [VS Code](https://code.visualstudio.com/)
-1. [Postman](https://www.getpostman.com/)
-1. 开发平台的选择: mac, win, linux
+---
 
-https://octoverse.github.com/
-https://www.reddit.com/r/programming/comments/8qqhlz/comment/e0ll1dt/
-https://facebook.github.io/react-native/showcase.html
+## 搭建开发环境
+
+* 开发平台
+  * Windows
+  * MacOS
+    > 安装 [Homebrew](https://brew.sh/)，一路 `brew install`，非常方便
+  * [Linux](https://www.distrowatch.com/dwres.php?resource=popularity)
+    > Debian/Ubuntu
+    * Mint
+    * Elementary
+    * Ubuntu
+    * Debian
+
+    > ArchLinux
+    * Manjaro
+
+    > 其他
+    * Fedora
+    * openSUSE
+    * CentOS
+
+* [Chrome](https://www.google.com/chrome/) / Firefox
+  * Ubuntu
+    ```bash
+    sudo apt install ...
+    ```
+  > Chrome Extensions
+  1. [Vue.js DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools)
+  1. [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+  1. [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+* [Git](https://git-scm.com/)
+  * MacOS
+    ```
+    brew install git
+    ```
+  * Ubuntu
+    ```
+    sudo apt install git
+    ```
+* [Visual Studio Code](https://code.visualstudio.com/)
+  > VS Code Extensions
+  ```
+  christian-kohler.npm-intellisense
+  christian-kohler.path-intellisense
+  CoenraadS.bracket-pair-colorizer
+  dbaeumer.vscode-eslint
+  eamodio.gitlens
+  EditorConfig.EditorConfig
+  eg2.vscode-npm-script
+  formulahendry.auto-close-tag
+  formulahendry.auto-rename-tag
+  formulahendry.code-runner
+  naumovs.color-highlight
+  octref.vetur
+  robertohuertasm.vscode-icons
+  steoates.autoimport
+  streetsidesoftware.code-spell-checker
+  ```
+  > `code --install-extension` _extension_
+* [nvm](https://github.com/creationix/nvm)
+  > 通过 `nvm` 安装 LTS 版 `node.js`
+  * MacOS
+    ```bash
+    brew install nvm
+    source ~/.bash_profile
+    nvm install --lts
+    ```
+  * Ubuntu
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+    # 可能不一定是 .bashrc
+    source ~/.bashrc
+    nvm install --lts
+    ```
+* [Yarn](https://yarnpkg.com/)
+  * MacOS
+    ```bash
+    brew install yarn --without-node
+
+    # 安装 eslint
+    yarn global add eslint
+    ```
+  * Ubuntu
+    ```bash
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update && sudo apt-get install yarn
+
+    # 安装 eslint
+    yarn global add eslint
+
+    # 可能需要手动将 yarn 的全局 bin 路径加入到 $PATH 中，如下行：
+    echo 'export PATH="$PATH:$(yarn global bin)"' >> ~/.bashrc
+    ```
+* [Postman](https://www.getpostman.com/)
+  * Ubuntu
+    ```bash
+    wget https://dl.pstmn.io/download/latest/linux64 -O postman.tar.gz
+    sudo tar -xzf postman.tar.gz -C /opt
+    rm postman.tar.gz
+    sudo ln -s /opt/Postman/Postman /usr/bin/postman
+
+    # 用 vs code 打开并编辑
+    code ~/.local/share/applications/postman.desktop
+    ```
+
+    > 用 vs code 编辑 `postman.desktop` 后保存
+    ```
+    [Desktop Entry]
+    Encoding=UTF-8
+    Name=Postman
+    Exec=postman
+    Icon=/opt/Postman/app/resources/app/assets/icon.png
+    Terminal=false
+    Type=Application
+    Categories=Development;
+    ```
+
+    > 注销当前用户并再次登入（不明白的话就重启）后应该可以从开始菜单里找到
+
+> [Elementary OS](https://elementary.io/)
