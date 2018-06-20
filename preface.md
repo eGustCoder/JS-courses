@@ -1,14 +1,6 @@
-# 狗哥的编程课堂
+# 狗哥讲编程
 
-学习现代 JS 编程与工具链
-
-## 预备知识
-
-* HTML
-* CSS
-* JS
-
-> 能够完成基本的网页，对全栈编程有一定了解
+> 现代 JS 编程与工具——序言
 
 ## JavaScript能做什么？
 
@@ -29,32 +21,63 @@
 
 ### 劣势
 
-* 传统观念 - 糟糕的语法，混乱的对象模型，搞不清 this，callback hell
+* 传统观念 - [诡异的语法](http://javascript-puzzlers.herokuapp.com/)，混乱的对象模型，搞不清 this，回调函数地狱...
 * 新语法 - 不了解，不会用
 * 开发工具链对初学者并不友好
 * 技术更新快 - 中文社区文档
 
+## 预备知识
+
+* HTML
+* CSS
+* JS
+
+> 能够完成基本的网页，对全栈编程有一定了解
+
+#### 基本概念
+
+* 什么是 JavaScript (JS), ECMAScript (ES), TypeScript (TS)？ES6 又是什么意思？
+* Node、JS、V8 之间是什么关系？
+* 为什么开发前端应用需要使用 Node？你所谓的现代 JS 前端开发跟传统的开发方式有什么差别？
+
+
+## 课程内容
+
+* 前端开发: Vue + Vuex + vue-router, React + redux + redux-saga + react-router, apollo-client(?)
+* 移动开发: React Native
+* 桌面开发: Electron
+* 后端开发: Koa(?), FaaS(?), GraphQL(?)
+* 工具链: Node, Parcel, Babel, Webpack, ESLint, Jest
+* 新语法的应用
+
 ---
 
-## 工具链
+## 工具
 
 1. [Node.js](https://nodejs.org/)
 1. 包管理: NPM / [Yarn](https://yarnpkg.com/)
 1. 代码检查: [ESLint](https://eslint.org/) 工具
 1. 测试工具: Mocha, [Jest](https://facebook.github.io/jest/)
+1. WebAssembly
 
 ### 网页前端开发
 
 1. 编译工具: [Babel.js](https://babeljs.io/)
 1. 打包工具: [Webpack](https://webpack.js.org/), [Parcel](https://parceljs.org/)
-1. UI框架: [React](https://reactjs.org/), [Vue](https://vuejs.org/)
+1. UI框架: [React](https://reactjs.org/), [Vue](https://vuejs.org/), Angular
 1. 状态管理: [Redux](https://redux.js.org/) + [redux-saga](https://github.com/redux-saga/redux-saga)/[redux-thunk](https://github.com/reduxjs/redux-thunk), [Vuex](https://vuex.vuejs.org/)
 1. 客户端路由: [react-router](https://github.com/ReactTraining/react-router), [vue-router](https://router.vuejs.org/)
 1. HTML 模板: [Pug](https://pugjs.org/)
 1. CSS 预处理: [SASS/SCSS](https://sass-lang.com/), LESS, [Stylus](http://stylus-lang.com/)
-1. API: REST, [GraphQL](https://graphql.org/)
+1. API: REST, [GraphQL](https://graphql.org/), [apollo-client](https://www.apollographql.com/client/)
 
 > SPA = Single Page Application
+
+  * Reactive UI framework (React, Vue)
+  * State Management (Redux, Vuex)
+  * Router (react-router, vue-router)
+  * API
+  * _SSR: Server-Side Rendering_
 
 ### 移动开发
 
@@ -74,7 +97,8 @@
 1. [Koa.js](https://koajs.com/)
 1. MongoDB
 1. FaaS - Function as a Service: AWS Lambda, Google Firebase Cloud Functions
-1. GraphQL*
+1. _GraphQL_
+1. SSR: Next.js (React), Nuxt.js (Vue)
 
 > MEAN stack: MongoDB, Express.js, Angular, Node.js
 
@@ -86,6 +110,7 @@
 1. [LoDash](https://lodash.com/docs/)
 1. [Axios](https://github.com/axios/axios)
 1. FP: [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide)
+
 ---
 
 ## 搭建开发环境
@@ -109,12 +134,12 @@
     * openSUSE
     * CentOS
 
-* [Chrome](https://www.google.com/chrome/) / Firefox
+* [Chrome](https://www.google.com/chrome/)
   * Ubuntu
     ```bash
     sudo apt install ...
     ```
-  > Chrome Extensions
+  > Extensions
   1. [Vue.js DevTools](https://chrome.google.com/webstore/detail/vuejs-devtools)
   1. [React DevTools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
   1. [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
@@ -128,22 +153,15 @@
     sudo apt install git
     ```
 * [Visual Studio Code](https://code.visualstudio.com/)
-  > VS Code Extensions
+  > Extensions
   ```
-  christian-kohler.npm-intellisense
   christian-kohler.path-intellisense
   CoenraadS.bracket-pair-colorizer
-  dbaeumer.vscode-eslint
-  eamodio.gitlens
-  EditorConfig.EditorConfig
-  eg2.vscode-npm-script
   formulahendry.auto-close-tag
   formulahendry.auto-rename-tag
-  formulahendry.code-runner
   naumovs.color-highlight
   octref.vetur
   robertohuertasm.vscode-icons
-  steoates.autoimport
   streetsidesoftware.code-spell-checker
   ```
   > `code --install-extension` _extension_
@@ -166,18 +184,12 @@
   * MacOS
     ```bash
     brew install yarn --without-node
-
-    # 安装 eslint
-    yarn global add eslint
     ```
   * Ubuntu
     ```bash
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
     sudo apt-get update && sudo apt-get install yarn
-
-    # 安装 eslint
-    yarn global add eslint
 
     # 可能需要手动将 yarn 的全局 bin 路径加入到 $PATH 中，如下行：
     echo 'export PATH="$PATH:$(yarn global bin)"' >> ~/.bashrc
@@ -206,6 +218,4 @@
     Categories=Development;
     ```
 
-    > 注销当前用户并再次登入（不明白的话就重启）后应该可以从开始菜单里找到
-
-> [Elementary OS](https://elementary.io/)
+    > 注销当前用户并再次登入（不明白的话就重启），应该可以从开始菜单里找到
