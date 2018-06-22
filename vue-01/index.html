@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>待办事项</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <template id="main">
+    <div class="container">
+      <h1 class="text-center">待办事项</h1>
+      <div class="form-group row justify-content-center">
+        <div class="input-group col-md-9 col-lg-6">
+          <input type="text" class="form-control" placeholder="你想咋地？" v-model="title" @keypress.enter="addItem">
+          <div class="input-group-append">
+            <button class="btn btn-primary" @click="addItem">
+              <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <ul class="list-group col-md-9 col-lg-6">
+          <li class="list-group-item" v-if="!todoList.length">啥都没有呢</li>
+          <li class="list-group-item" v-else>
+            <div class="row todo-item" v-for="(item, index) in todoList">
+              <div class="col input-group">
+                <div class="input-group-prepend">
+                  <button class="btn" :class="item.finished ? 'btn-outline-secondary' : 'btn-success'" @click="toggleItem(index)">
+                    <i class="fa fa-check-square-o" v-if="item.finished"></i>
+                    <i class="fa fa-square" v-else></i>
+                  </button>
+                </div>
+                <div class="form-control" :style="textStyle(item.finished)">{{ item.title }}</div>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-danger" @click="removeItem(index)">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                  </div>
+                </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </template>
+  <link rel="stylesheet" href="./index.css">
+  <script src="./index.js"></script>
+</body>
+</html>
